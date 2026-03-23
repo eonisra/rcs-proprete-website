@@ -1,0 +1,435 @@
+/* ==========================================================================
+   CSS GLOBAL - VARIABLES & RESET
+   ========================================================================== */
+:root {
+    /* Couleurs tirées du logo RCS Propreté */
+    --primary-blue: #002D62; /* Bleu Marine sombre - Texte principal / Background header */
+    --accent-cyan: #0097D9;  /* Bleu Cyan vibrant - Boutons / Éléments actifs */
+    --text-dark: #111111;    /* Noir pour le texte principal */
+    --text-light: #FFFFFF;   /* Blanc pour le texte sur fond sombre */
+    --bg-light: #F9F9F9;     /* Gris très clair pour les fonds alternés */
+    --border-gray: #E0E0E0;  /* Gris pour les bordures */
+
+    /* Paramètres globaux */
+    --transition: 0.3s ease;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Défilement fluide entre les sections */
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--text-light);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Boutons */
+.btn-primary {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--accent-cyan);
+    color: var(--text-light);
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: 2px solid var(--accent-cyan);
+}
+
+.btn-primary:hover {
+    background-color: var(--text-light);
+    color: var(--accent-cyan);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* ==========================================================================
+   EN-TÊTE / NAVIGATION
+   ========================================================================== */
+header {
+    background-color: var(--text-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    position: sticky; /* Reste collé en haut */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.logo-container img {
+    max-height: 60px; /* Ajuste la hauteur de ton logo */
+    width: auto;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav ul li a:hover {
+    color: var(--accent-cyan);
+}
+
+/* Petite barre d'accentuation sous les liens au hover */
+nav ul li a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-cyan);
+    transition: var(--transition);
+}
+
+nav ul li a:hover:after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   SECTION ACCUEIL (HERO)
+   ========================================================================== */
+.hero {
+    height: 85vh; /* Presque toute la hauteur de l'écran */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--primary-blue); /* Couleur de base si l'image charge mal */
+    /* Remplace par une belle image de ton choix pour le fond si tu en as une, sinon laisse le fond uni */
+    /* background-image: linear-gradient(rgba(0, 45, 98, 0.8), rgba(0, 45, 98, 0.9)), url('../img/hero-bg.jpg'); */
+    background-size: cover;
+    background-position: center;
+    color: var(--text-light);
+    padding: 0 5%;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    color: var(--text-light);
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   SECTION SERVICES
+   ========================================================================== */
+#services {
+    padding: 100px 5%;
+    background-color: var(--bg-light);
+    text-align: center;
+}
+
+#services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes */
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background-color: var(--text-light);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    text-align: left;
+    border-top: 5px solid transparent;
+}
+
+/* Accentuation de la carte PRO pour l'entrepreneur */
+.service-card.pro {
+    border-top: 5px solid var(--accent-cyan);
+}
+
+.service-card.particulier {
+    border-top: 5px solid var(--border-gray);
+}
+
+.service-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Liste à puces stylisée avec des coches */
+.service-card ul li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+.service-card ul li:before {
+    content: '✓'; /* Coche */
+    position: absolute;
+    left: 0;
+    color: var(--accent-cyan);
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   SECTION RÉALISATIONS (GALERIE D'IMAGES)
+   ========================================================================== */
+#realisations {
+    padding: 100px 5%;
+    text-align: center;
+}
+
+#realisations h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#realisations p {
+    max-width: 700px;
+    margin: 0 auto 50px;
+    color: var(--text-dark);
+}
+
+.galerie {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Trois colonnes */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.image-box {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    aspect-ratio: 4 / 3; /* Force toutes les images au même format */
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Remplit la case en recadrant si nécessaire */
+    transition: var(--transition);
+}
+
+/* Effet au survol de l'image */
+.image-box:hover img {
+    transform: scale(1.1); /* Zoom avant */
+}
+
+/* ==========================================================================
+   SECTION CONTACT
+   ========================================================================== */
+#contact {
+    padding: 100px 5%;
+    background-color: var(--bg-light);
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#contact p {
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Info à gauche, formulaire à droite */
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--text-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.contact-info p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.contact-info a {
+    color: var(--accent-cyan);
+    font-weight: 600;
+}
+
+/* Stylisation du Formulaire */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form label {
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: -10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid var(--border-gray);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 5px rgba(0, 151, 217, 0.3); /* Lueur cyan au focus */
+}
+
+/* ==========================================================================
+   PIED DE PAGE (FOOTER)
+   ========================================================================== */
+footer {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    text-align: center;
+    padding: 40px 5%;
+}
+
+footer p {
+    margin: 0 0 10px;
+}
+
+footer a {
+    font-weight: 600;
+    color: var(--accent-cyan);
+}
+
+footer a:hover {
+    color: var(--text-light);
+}
+
+/* ==========================================================================
+   MEDIA QUERIES - RESPONSIVE DESIGN (POUR MOBILES & TABLETTES)
+   ========================================================================== */
+
+/* Tablettes (en dessous de 992px) */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .services-container {
+        gap: 20px;
+    }
+
+    .galerie {
+        grid-template-columns: repeat(2, 1fr); /* Deux colonnes seulement */
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr; /* Stacked: info au-dessus du formulaire */
+        gap: 30px;
+    }
+}
+
+/* Mobiles (en dessous de 768px) */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px; /* Réduit la police globale */
+    }
+
+    header {
+        flex-direction: column; /* Logo au-dessus du menu */
+        gap: 15px;
+        padding: 15px 5%;
+    }
+
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap; /* Permet au menu de passer sur plusieurs lignes */
+        justify-content: center;
+    }
+
+    .hero {
+        height: auto;
+        padding: 80px 5%;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .services-container {
+        grid-template-columns: 1fr; /* Une seule colonne */
+    }
+
+    .galerie {
+        grid-template-columns: 1fr; /* Une seule colonne */
+    }
+
+    .service-card {
+        padding: 25px;
+    }
+}
