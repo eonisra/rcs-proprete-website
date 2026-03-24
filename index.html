@@ -25,22 +25,22 @@
     <section id="accueil" class="hero">
         <div class="hero-content">
             <h1>L'exigence de la propreté, du sol au plafond</h1>
-            <p>Intervention rapide à Aix-en-Provence et dans toute la région PACA. Équipement professionnel de haute qualité.</p>
+            <p>Notre engagement : vous rendre au minimum ce que vous avez demandé.<br>Intervention à Aix-en-Provence et ses alentours (Var et Vaucluse selon chantiers).</p>
             <a href="#contact" class="btn-primary">Demander un devis gratuit</a>
         </div>
     </section>
 
-    <section id="services">
+   <section id="services">
         <h2>Nos Prestations</h2>
         <div class="services-container">
             <article class="service-card pro">
                 <h3>Pour les Professionnels</h3>
                 <p>Nous comprenons l'importance de l'image de votre entreprise. Nous intervenons avec du matériel professionnel adapté pour :</p>
                 <ul>
-                    <li>Vitrines de magasins et devantures</li>
-                    <li>Bureaux et open-spaces</li>
+                    <li>Vitrines, devantures et bureaux</li>
                     <li>Nettoyage de bardages et façades</li>
-                    <li>Entretien régulier ou ponctuel</li>
+                    <li>Nettoyage de panneaux solaires</li>
+                    <li>Nettoyage de toitures à haute pression</li>
                 </ul>
             </article>
 
@@ -49,9 +49,9 @@
                 <p>Retrouvez un intérieur lumineux et impeccable sans le moindre effort. Nos services incluent :</p>
                 <ul>
                     <li>Nettoyage de baies vitrées et fenêtres</li>
-                    <li>Vérandas et verrières</li>
-                    <li>Remise en état après travaux</li>
-                    <li>Nettoyage de printemps</li>
+                    <li>Nettoyage à l'eau pure (osmoseur)</li>
+                    <li>Service de débarras et remise en état après travaux</li>
+                    <li>Demandes personnalisées sur devis</li>
                 </ul>
             </article>
         </div>
@@ -73,9 +73,9 @@
         
         <div class="contact-container">
             <div class="contact-info">
-                <p><strong>Téléphone :</strong> <a href="tel:+33600000000">06 00 00 00 00</a></p>
-                <p><strong>Email :</strong> <a href="mailto:contact@rcs-proprete.fr">contact@rcs-proprete.fr</a></p>
-                <p><strong>Zone d'intervention :</strong> Aix-en-Provence et toute la région PACA.</p>
+                <p><strong>Téléphone :</strong> <a href="tel:+33767644778">07 67 64 47 78</a></p>
+                <p><strong>Email :</strong> <a href="#contact">[En cours de création]</a></p>
+                <p><strong>Zone d'intervention :</strong> Aix-en-Provence et alentours (Var, Vaucluse selon l'envergure du chantier).</p>
             </div>
 
             <form action="https://formspree.io/f/xyknrzwv" method="POST" class="contact-form">
@@ -96,8 +96,53 @@
 
     <footer>
         <p>&copy; 2026 RCS Propreté. Tous droits réservés.</p>
-        <p><a href="#mentions-legales">Mentions Légales</a></p>
+        <p><a href="#" id="link-mentions">Mentions Légales</a></p>
     </footer>
+
+    <div id="modal-mentions" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Mentions Légales</h2>
+            <p><strong>Éditeur du site :</strong><br>
+            RCS Propreté (Micro-entreprise / Entrepreneur individuel)<br>
+            Dirigeant : Eddy RUINI<br>
+            Siège social : 60 rue François 1er, 75008 Paris<br>
+            SIRET : 932 939 820 00019<br>
+            TVA Intracommunautaire : Non applicable, art. 293 B du CGI.</p>
+
+            <p><strong>Contact :</strong><br>
+            Téléphone : 07 67 64 47 78<br>
+            Email : [En cours de création]</p>
+
+            <p><strong>Hébergement :</strong><br>
+            Ce site est hébergé par Netlify, Inc.<br>
+            512 2nd Street, Suite 200 San Francisco, CA 94107, USA.</p>
+        </div>
+    </div>
+
+    <script>
+        var modal = document.getElementById("modal-mentions");
+        var btn = document.getElementById("link-mentions");
+        var span = document.getElementsByClassName("close-modal")[0];
+
+        // Quand on clique sur le lien, on ouvre la modale
+        btn.onclick = function(e) {
+            e.preventDefault();
+            modal.style.display = "block";
+        }
+
+        // Quand on clique sur la croix, on ferme
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Quand on clique n'importe où en dehors de la boîte, on ferme
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 </html>
