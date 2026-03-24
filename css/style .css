@@ -28,7 +28,7 @@ html {
     font-size: 16px;
 }
 
-bbody {
+body {
     font-family: var(--font-text); /* Modification ici */
     color: var(--text-dark);
     line-height: 1.6;
@@ -480,4 +480,59 @@ footer a:hover {
 
 .close-modal:hover {
     color: var(--primary-blue);
+}
+
+/* ==========================================================================
+   BOUTON D'APPEL FLOTTANT
+   ========================================================================== */
+.floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--accent-cyan);
+    color: var(--text-light);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 151, 217, 0.4);
+    z-index: 1000;
+    transition: var(--transition);
+    
+    /* Petite animation qui fait "respirer" le bouton pour attirer l'oeil */
+    animation: pulse-ring 2s infinite;
+}
+
+.floating-btn svg {
+    width: 28px;
+    height: 28px;
+}
+
+.floating-btn:hover {
+    background-color: var(--primary-blue);
+    transform: scale(1.1);
+    animation: none; /* On arrête l'animation quand on passe la souris */
+}
+
+/* La clé de l'animation (effet d'onde) */
+@keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(0, 151, 217, 0.6); }
+    70% { box-shadow: 0 0 0 15px rgba(0, 151, 217, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 151, 217, 0); }
+}
+
+/* Ajustement pour que ce soit un peu plus petit sur les téléphones */
+@media (max-width: 768px) {
+    .floating-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    .floating-btn svg {
+        width: 22px;
+        height: 22px;
+    }
 }
