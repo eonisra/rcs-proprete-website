@@ -553,3 +553,24 @@ footer a:hover {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ==========================================================================
+   HEADER DYNAMIQUE (AU SCROLL)
+   ========================================================================== */
+/* On ajoute une transition fluide au header de base et au logo */
+header, .logo-container img {
+    transition: all 0.3s ease;
+}
+
+/* Voici l'apparence du header quand on descend sur la page */
+header.scrolled {
+    padding: 5px 5%; /* On réduit l'espace en haut et en bas */
+    background-color: rgba(255, 255, 255, 0.95); /* Blanc très légèrement transparent */
+    backdrop-filter: blur(5px); /* Effet verre dépoli très moderne (Apple style) */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre un peu plus forte */
+}
+
+/* On réduit aussi la taille du logo pour gagner de la place */
+header.scrolled .logo-container img {
+    max-height: 45px; 
+}
