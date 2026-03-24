@@ -536,3 +536,20 @@ footer a:hover {
         height: 22px;
     }
 }
+
+
+/* ==========================================================================
+   ANIMATIONS AU DÉFILEMENT (SCROLL REVEAL)
+   ========================================================================== */
+/* État de base : caché et décalé de 50px vers le bas */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); /* Animation très fluide type "Apple" */
+}
+
+/* État final : visible et à sa place d'origine */
+.reveal.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
