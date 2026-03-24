@@ -13,7 +13,8 @@
     /* Paramètres globaux */
     --transition: 0.3s ease;
     --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-text: 'Open Sans', sans-serif;
+    --font-title: 'Montserrat', sans-serif;
 }
 
 * {
@@ -27,13 +28,12 @@ html {
     font-size: 16px;
 }
 
-body {
-    font-family: var(--font-family);
+bbody {
+    font-family: var(--font-text); /* Modification ici */
     color: var(--text-dark);
     line-height: 1.6;
     background-color: var(--text-light);
 }
-
 a {
     text-decoration: none;
     color: inherit;
@@ -45,6 +45,7 @@ ul {
 }
 
 h1, h2, h3 {
+    font-family: var(--font-title); /* Ajout de cette ligne */
     margin-bottom: 1rem;
     color: var(--primary-blue);
     font-weight: 700;
@@ -56,6 +57,7 @@ p {
 
 /* Boutons */
 .btn-primary {
+    font-family: var(--font-title);
     display: inline-block;
     padding: 12px 24px;
     background-color: var(--accent-cyan);
@@ -99,6 +101,7 @@ nav ul {
 }
 
 nav ul li a {
+    font-family: var(--font-title);
     color: var(--primary-blue);
     font-weight: 600;
     font-size: 1rem;
