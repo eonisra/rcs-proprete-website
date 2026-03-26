@@ -164,6 +164,38 @@ nav ul li a:hover:after {
     opacity: 0.9;
 }
 
+.badge-nom {
+    display: inline-block;
+    background-color: var(--accent-cyan);
+    color: var(--text-light);
+    
+    /* 1. On agrandit l'espace autour du texte (Padding) */
+    padding: 8px 25px; 
+    
+    border-radius: 50px;
+    
+    /* 2. On augmente la taille de la police */
+    font-size: 1.2rem; /* Au lieu de 0.9rem (ça correspond à 19px environ) */
+    
+    font-weight: 700;
+    text-transform: uppercase;
+    
+    /* 3. On écarte un peu plus les lettres pour un effet premium */
+    letter-spacing: 3px; 
+    
+    margin-bottom: 25px; /* Un peu plus d'espace avec le grand titre en dessous */
+    box-shadow: var(--shadow);
+}
+
+.hero-subtitle {
+    font-size: 1.8rem; /* C'est grand, mais pas autant que le H1 (3.5rem) */
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
 /* ==========================================================================
    SECTION SERVICES
    ========================================================================== */
@@ -226,53 +258,72 @@ nav ul li a:hover:after {
     color: var(--accent-cyan);
     font-weight: bold;
 }
-
 /* ==========================================================================
-   SECTION RÉALISATIONS (GALERIE D'IMAGES)
+   SECTION RÉALISATIONS (NOUVEAU SLIDER HORIZONTAL)
    ========================================================================== */
 #realisations {
-    padding: 100px 5%;
+    padding: 100px 0; /* On enlève le padding latéral pour que le slider aille d'un bord à l'autre */
     text-align: center;
 }
 
-#realisations h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+#realisations h2, #realisations p {
+    padding: 0 5%; /* On remet le padding pour les textes seulement */
 }
 
-#realisations p {
-    max-width: 700px;
-    margin: 0 auto 50px;
-    color: var(--text-dark);
-}
-
-.galerie {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Trois colonnes */
-    gap: 20px;
-    max-width: 1200px;
+/* Le container principal du slider */
+.galerie-wrapper {
+    max-width: 1400px; /* Largeur max pour les très grands écrans */
     margin: 0 auto;
+    padding: 20px 5% 40px; /* Padding en bas pour laisser de la place à l'ombre */
 }
 
+/* La galerie en elle-même (le container qui défile) */
+.galerie {
+    display: flex; /* Aligne les photos sur une seule ligne */
+    gap: 20px; /* Espace entre les photos */
+    overflow-x: auto; /* Active le défilement horizontal s'il n'y a pas assez de place */
+    padding-bottom: 20px; /* Espace pour la barre de défilement si elle apparaît */
+    scroll-behavior: smooth; /* Défilement fluide */
+    
+    /* --- OPTION PRO : SCROLL SNAP --- */
+    scroll-snap-type: x mandatory; /* Force les photos à "s'aimanter" parfaitement au centre ou au bord */
+    
+    /* Pour cacher la barre de défilement sur les navigateurs basés sur Webkit (Chrome, Safari) */
+    -webkit-overflow-scrolling: touch; /* Défilement fluide sur iOS */
+}
+
+/* Pour cacher la barre de défilement (optionnel) */
+.galerie::-webkit-scrollbar {
+    height: 8px; /* On la rend fine pour qu'elle ne gêne pas */
+}
+.galerie::-webkit-scrollbar-thumb {
+    background: rgba(0, 151, 217, 0.3); /* Couleur discrète cyan transparent */
+    border-radius: 4px;
+}
+
+/* Les cases contenant les images */
 .image-box {
-    overflow: hidden;
+    flex: 0 0 auto; /* Empêche les cases de rétrécir ou de grandir. Gardent leur largeur d'origine */
+    width: 400px; /* Largeur fixe de chaque photo (ajuste selon tes besoins) */
+    aspect-ratio: 1 / 1; /* Force les photos en format Carré (plus pro pour un slider) */
     border-radius: 8px;
+    overflow: hidden;
     box-shadow: var(--shadow);
-    aspect-ratio: 4 / 3; /* Force toutes les images au même format */
+    
+    /* Pour le Scroll Snap */
+    scroll-snap-align: center; /* L'image s'aimante au centre de l'écran */
 }
 
 .image-box img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Remplit la case en recadrant si nécessaire */
+    object-fit: cover; /* Remplit parfaitement le carré sans déformer */
     transition: var(--transition);
 }
 
-/* Effet au survol de l'image */
 .image-box:hover img {
-    transform: scale(1.1); /* Zoom avant */
+    transform: scale(1.05); /* Léger zoom au survol */
 }
-
 /* ==========================================================================
    SECTION CONTACT
    ========================================================================== */
@@ -387,14 +438,9 @@ footer a:hover {
         gap: 20px;
     }
 
-    .galerie {
-        grid-template-columns: repeat(2, 1fr); /* Deux colonnes seulement */
-    }
+   
 
-    .contact-container {
-        grid-template-columns: 1fr; /* Stacked: info au-dessus du formulaire */
-        gap: 30px;
-    }
+    
 }
 
 /* Mobiles (en dessous de 768px) */

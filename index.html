@@ -28,10 +28,11 @@
             </ul>
         </nav>
     </header>
-    <section id="accueil" class="hero">
-        <div class="hero-content">
+   <section id="accueil" class="hero">
+        <div class="hero-content reveal">
+            <h2 class="hero-subtitle">RCS Propreté</h2>
             <h1>L'exigence de la propreté, du sol au plafond</h1>
-            <p>Notre engagement : vous rendre au minimum ce que vous avez demandé.<br>Intervention à Aix-en-Provence et ses alentours (Var et Vaucluse selon chantiers).</p>
+            <p>Notre engagement : vous rendre au minimum ce que vous avez demandé.<br>Intervention à Aix-en-Provence et ses alentours.</p>
             <a href="#contact" class="btn-primary">Demander un devis gratuit</a>
         </div>
     </section>
@@ -47,6 +48,7 @@
                     <li>Nettoyage de bardages et façades</li>
                     <li>Nettoyage de panneaux solaires</li>
                     <li>Nettoyage de toitures à haute pression</li>
+                    <li>Nettoyage à l'eau pure (osmoseur)</li>
                 </ul>
             </article>
 
@@ -55,7 +57,6 @@
                 <p>Retrouvez un intérieur lumineux et impeccable sans le moindre effort. Nos services incluent :</p>
                 <ul>
                     <li>Nettoyage de baies vitrées et fenêtres</li>
-                    <li>Nettoyage à l'eau pure (osmoseur)</li>
                     <li>Service de débarras et remise en état après travaux</li>
                     <li>Demandes personnalisées sur devis</li>
                 </ul>
@@ -65,11 +66,18 @@
 
     <section id="realisations">
         <h2>Nos Réalisations</h2>
-        <p>Découvrez la qualité de notre travail en images.</p>
-       <div class="galerie">
-            <div class="image-box reveal"><img src="Img/galerie/photo1.jpeg" alt="Nettoyage vitrine professionnel"></div>
-            <div class="image-box reveal"><img src="Img/galerie/photo2.jpeg" alt="Nettoyage baie vitrée particulier"></div>
-            <div class="image-box reveal"><img src="Img/galerie/photo3.jpeg" alt="Nettoyage après travaux"></div>
+        <p>Découvrez la qualité de notre travail en images. Scrollez horizontalement pour en voir plus.</p>
+        
+        <div class="galerie-wrapper">
+            <div class="galerie">
+                <div class="image-box reveal"><img src="Img/galerie/photo1.jpeg" alt="Nettoyage vitrine professionnel"></div>
+                <div class="image-box reveal"><img src="Img/galerie/photo2.jpeg" alt="Nettoyage baie vitrée particulier"></div>
+                <div class="image-box reveal"><img src="Img/galerie/photo3.jpeg" alt="Nettoyage après travaux"></div>
+
+                <div class="image-box reveal"><img src="Img/galerie/photo4.jpeg" alt="Nettoyage toiture avant après"></div>
+                <div class="image-box reveal"><img src="Img/galerie/photo5.jpeg" alt="Nettoyage panneaux solaires pro"></div>
+                
+                </div>
         </div>
     </section>
 
@@ -80,12 +88,11 @@
         <div class="contact-container">
             <div class="contact-info reveal">
                 <p><strong>Téléphone :</strong> <a href="tel:+33767644778">07 67 64 47 78</a></p>
-                <p><strong>Email :</strong> <a href="#contact">[En cours de création]</a></p>
+                <p><strong>Email :</strong> <a href="#contact">ruini.eddy@gmail.com</a></p>
                 <p><strong>Zone d'intervention :</strong> Aix-en-Provence et alentours (Var, Vaucluse selon l'envergure du chantier).</p>
             </div>
 
-            <form action="https://formspree.io/f/xyknrzwv" method="POST" class="contact-form reveal">
-                <input type="hidden" name="_next" value="https://rcs-proprete.netlify.app">
+            <form name="contact" method="POST" data-netlify="true" class="contact-form reveal">
                 <label for="nom">Nom / Entreprise :</label>
                 <input type="text" id="nom" name="nom" required>
 
@@ -101,6 +108,8 @@
     </section>
 
     <footer>
+        <img src="Img/logo.png" alt="Logo RCS Propreté" style="max-height: 80px; margin-bottom: 20px;">
+        
         <p>&copy; 2026 RCS Propreté. Tous droits réservés.</p>
         <p><a href="#" id="link-mentions">Mentions Légales</a></p>
     </footer>
