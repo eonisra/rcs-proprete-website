@@ -278,18 +278,19 @@ nav ul li a:hover:after {
 }
 
 /* La galerie en elle-même (le container qui défile) */
+/* La galerie en elle-même (le container qui défile) */
 .galerie {
-    display: flex; /* Aligne les photos sur une seule ligne */
-    gap: 20px; /* Espace entre les photos */
-    overflow-x: auto; /* Active le défilement horizontal s'il n'y a pas assez de place */
-    padding-bottom: 20px; /* Espace pour la barre de défilement si elle apparaît */
-    scroll-behavior: smooth; /* Défilement fluide */
+    display: flex; 
+    gap: 20px; 
+    overflow-x: auto; 
     
-    /* --- OPTION PRO : SCROLL SNAP --- */
-    scroll-snap-type: x mandatory; /* Force les photos à "s'aimanter" parfaitement au centre ou au bord */
+    /* --- LA CORRECTION EST ICI --- */
+    overflow-y: hidden; /* Empêche strictement le défilement vertical fantôme */
+    padding-bottom: 40px; /* On augmente un peu pour laisser la place à l'ombre et à l'animation */
     
-    /* Pour cacher la barre de défilement sur les navigateurs basés sur Webkit (Chrome, Safari) */
-    -webkit-overflow-scrolling: touch; /* Défilement fluide sur iOS */
+    scroll-behavior: smooth; 
+    scroll-snap-type: x mandatory; 
+    -webkit-overflow-scrolling: touch; 
 }
 
 /* Pour cacher la barre de défilement (optionnel) */
@@ -428,6 +429,7 @@ footer a:hover {
    MEDIA QUERIES - RESPONSIVE DESIGN (POUR MOBILES & TABLETTES)
    ========================================================================== */
 
+
 /* Tablettes (en dessous de 992px) */
 @media (max-width: 992px) {
     .hero h1 {
@@ -438,9 +440,11 @@ footer a:hover {
         gap: 20px;
     }
 
-   
-
-    
+    /* --- CORRECTION DU FORMULAIRE --- */
+    .contact-container {
+        grid-template-columns: 1fr; /* On empile les infos au-dessus du formulaire */
+        gap: 40px;
+    }
 }
 
 /* Mobiles (en dessous de 768px) */
@@ -481,8 +485,26 @@ footer a:hover {
     .service-card {
         padding: 25px;
     }
-}
 
+
+/* --- CORRECTION DES PHOTOS SUR MOBILE --- */
+    .image-box {
+        width: 80vw; /* L'image prendra 80% de la largeur du téléphone, au lieu d'être bloquée à 400px */
+        max-width: 320px; /* On limite un peu pour les très grands téléphones */
+    }
+
+    /* On ajuste les marges pour que le défilement horizontal (scroll snap) soit parfait sur mobile */
+    .galerie-wrapper {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .galerie {
+        padding-left: 5%;
+        padding-right: 5%;
+        gap: 15px; /* Un peu moins d'espace entre les photos */
+    }
+}
 /* ==========================================================================
    MODALE MENTIONS LÉGALES
    ========================================================================== */

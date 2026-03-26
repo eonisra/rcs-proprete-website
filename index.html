@@ -66,7 +66,7 @@
 
     <section id="realisations">
         <h2>Nos Réalisations</h2>
-        <p>Découvrez la qualité de notre travail en images. Scrollez horizontalement pour en voir plus.</p>
+        <p>Découvrez la qualité de notre travail en images.</p>
         
         <div class="galerie-wrapper">
             <div class="galerie">
@@ -92,10 +92,12 @@
                 <p><strong>Zone d'intervention :</strong> Aix-en-Provence et alentours (Var, Vaucluse selon l'envergure du chantier).</p>
             </div>
 
-            <form name="contact" method="POST" data-netlify="true" class="contact-form reveal">
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form reveal">
+                <input type="hidden" name="access_key" value="cb58a679-e9b1-4859-bfd1-97a436d6e693">
+                <input type="hidden" name="redirect" value="https://rcs-proprete.netlify.app">
                 <label for="nom">Nom / Entreprise :</label>
                 <input type="text" id="nom" name="nom" required>
-
+                
                 <label for="email">Email :</label>
                 <input type="email" id="email" name="email" required>
 
