@@ -129,6 +129,8 @@ nav ul li a:hover:after {
     width: 100%;
 }
 
+
+
 /* ==========================================================================
    SECTION ACCUEIL (HERO)
    ========================================================================== */
@@ -202,6 +204,28 @@ nav ul li a:hover:after {
     letter-spacing: 4px;
     margin-bottom: 15px;
     font-weight: 700;
+}
+
+
+/* Style du bouton Hamburger */
+.menu-toggle {
+    display: none; /* CACHÉ SUR ORDINATEUR */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2000;
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-blue);
+    border-radius: 10px;
+    transition: all 0.3s ease; /* Pour l'animation en X plus tard */
 }
 
 /* ==========================================================================
@@ -469,6 +493,50 @@ footer a:hover {
 /* ==========================================================================
    MEDIA QUERIES - RESPONSIVE DESIGN (POUR MOBILES & TABLETTES)
    ========================================================================== */
+
+
+@media (max-width: 768px) {
+    /* On affiche le bouton */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* On transforme le menu en panneau coulissant */
+    .nav-menu {
+        position: fixed;
+        right: -100%; /* Caché à droite par défaut */
+        top: 0;
+        width: 70%; /* Largeur du menu mobile */
+        height: 100vh;
+        background-color: white;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: 0.4s ease;
+        padding-top: 100px;
+        z-index: 1500;
+    }
+
+    /* Quand le menu est actif (cliqué) */
+    .nav-menu.active {
+        right: 0; /* Il glisse vers la gauche pour apparaître */
+    }
+
+    .nav-menu ul {
+        flex-direction: column; /* Liens les uns sous les autres */
+        align-items: center;
+        gap: 30px;
+    }
+
+    /* Animation du bouton en "X" quand il est ouvert */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
 
 
 /* Tablettes (en dessous de 992px) */

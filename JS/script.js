@@ -122,3 +122,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+
+/* ==========================================================================
+   LOGIQUE DU MENU HAMBURGER (MOBILE)
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+
+    if (menuToggle && navMenu) {
+        // Au clic sur le bouton ☰
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Fermer le menu quand on clique sur un lien (très important !)
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+});
