@@ -600,7 +600,10 @@ footer a:hover {
         display: none;
     }
 
-
+/* On enlève le curseur loupe sur les images car la lightbox est désactivée sur mobile */
+    .image-box img {
+        cursor: default;
+    }
 /* --- CORRECTION DES PHOTOS SUR MOBILE --- */
     .image-box {
         width: 80vw; /* L'image prendra 80% de la largeur du téléphone, au lieu d'être bloquée à 400px */

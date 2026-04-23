@@ -74,9 +74,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // On attache l'action de clic à chaque image
         imagesGalerie.forEach(img => {
             img.addEventListener('click', function() {
-                lightbox.style.display = "flex"; 
-                lightboxImg.src = this.src; 
-                captionText.innerHTML = this.alt; 
+                if (window.innerWidth > 768) {
+                    lightbox.style.display = "flex"; 
+                    lightboxImg.src = this.src; 
+                    captionText.innerHTML = this.alt; 
+                }
             });
         });
 
