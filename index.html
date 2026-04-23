@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="RCS Propreté | Expert en nettoyage à Aix-en-Provence">
+    <meta property="og:description" content="L'exigence de la propreté du sol au plafond pour professionnels et particuliers. Demandez votre devis gratuit !">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rcs-proprete.netlify.app">
+    <meta property="og:image" content="https://rcs-proprete.netlify.app/Img/fond-accueil.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RCS Propreté | Nettoyage de vitres et locaux">
+    <meta name="twitter:description" content="L'exigence de la propreté du sol au plafond. Devis gratuit.">
+    <meta name="twitter:image" content="https://rcs-proprete.netlify.app/Img/fond-accueil.png">
     <title>RCS Propreté | Nettoyage de vitres et locaux à Aix-en-Provence</title>
     <meta name="description" content="RCS Propreté : Expert en nettoyage pour professionnels et particuliers à Aix-en-Provence et en région PACA. Devis gratuit.">
     <link rel="stylesheet" href="css/style .css"> 
@@ -69,15 +79,21 @@
         <p>Découvrez la qualité de notre travail en images.</p>
         
         <div class="galerie-wrapper">
+            <button class="slider-btn prev-btn" aria-label="Précédent">&#10094;</button>
             <div class="galerie">
-                <div class="image-box reveal"><img src="Img/galerie/photo1.jpeg" alt="Nettoyage vitrine professionnel"></div>
-                <div class="image-box reveal"><img src="Img/galerie/photo2.jpeg" alt="Nettoyage baie vitrée particulier"></div>
-                <div class="image-box reveal"><img src="Img/galerie/photo3.jpeg" alt="Nettoyage après travaux"></div>
+                <div class="image-box reveal"><img src="Img/galerie/photo7.jpeg" alt="Nettoyage vitres particuliers"></div>
+                <div class="image-box reveal"><img src="Img/galerie/photo8.jpeg" alt="Nettoyage Padel"></div>
+                <div class="image-box reveal"><img src="Img/galerie/photo4.jpeg" alt="Nettoyage vitres professionnels"></div>
 
-                <div class="image-box reveal"><img src="Img/galerie/photo4.jpeg" alt="Nettoyage toiture avant après"></div>
-                <div class="image-box reveal"><img src="Img/galerie/photo5.jpeg" alt="Nettoyage panneaux solaires pro"></div>
+                <div class="image-box reveal"><img src="Img/galerie/photo1.jpeg" alt="Nettoyage vitrine professionnel"></div>
+                <div class="image-box reveal"><img src="Img/galerie/photo2.jpeg" alt="Nettoyage vitres professionnels "></div>
+                <div class="image-box reveal"><img src="Img/galerie/photo3.jpeg" alt="Nettoyage vitres professionnels"></div>
+
+                <div class="image-box reveal"><img src="Img/galerie/photo6.jpeg" alt="Nettoyage après travaux"></div>
+                <div class="image-box reveal"><img src="Img/galerie/photo5.jpeg" alt="Nettoyage Padel"></div>
                 
                 </div>
+            <button class="slider-btn next-btn" aria-label="Suivant">&#10095;</button>
         </div>
     </section>
 
@@ -167,6 +183,13 @@
         </svg>
     </a>
     <script src="JS/script.js"></script>
+
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="img-zoom">
+        <div id="caption"></div>
+    </div>
 </body>
 
 

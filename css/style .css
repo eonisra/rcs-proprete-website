@@ -132,17 +132,25 @@ nav ul li a:hover:after {
 /* ==========================================================================
    SECTION ACCUEIL (HERO)
    ========================================================================== */
+/* ==========================================================================
+   SECTION ACCUEIL (HERO IMAGE AVEC OVERLAY)
+   ========================================================================= */
 .hero {
-    height: 85vh; /* Presque toute la hauteur de l'écran */
+    height: 85vh; 
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: var(--primary-blue); /* Couleur de base si l'image charge mal */
-    /* Remplace par une belle image de ton choix pour le fond si tu en as une, sinon laisse le fond uni */
-    /* background-image: linear-gradient(rgba(0, 45, 98, 0.8), rgba(0, 45, 98, 0.9)), url('../img/hero-bg.jpg'); */
-    background-size: cover;
-    background-position: center;
+    
+    /* Couleur de secours si l'image charge mal */
+    background-color: var(--primary-blue); 
+    
+    /* LA MAGIE EST ICI : Le voile bleu sombre transparent + l'image générée */
+    background-image: linear-gradient(rgba(0, 45, 98, 0.7), rgba(0, 45, 98, 0.8)), url('../Img/fond-accueil.png');
+    
+    background-size: cover; /* L'image remplit tout l'espace sans se déformer */
+    background-position: center; /* On centre l'image */
+    
     color: var(--text-light);
     padding: 0 5%;
 }
@@ -272,11 +280,44 @@ nav ul li a:hover:after {
 
 /* Le container principal du slider */
 .galerie-wrapper {
-    max-width: 1400px; /* Largeur max pour les très grands écrans */
+    position: relative; /* INDISPENSABLE pour placer les flèches */
+    max-width: 1400px; 
     margin: 0 auto;
-    padding: 20px 5% 40px; /* Padding en bas pour laisser de la place à l'ombre */
+    padding: 20px 5% 40px; 
 }
 
+/* ==========================================================================
+   BOUTONS DU CARROUSEL (FLÈCHES DISCRÈTES)
+   ========================================================================== */
+.slider-btn {
+    position: absolute;
+    top: 45%; /* On les centre verticalement (un peu plus haut à cause de l'ombre en bas) */
+    transform: translateY(-50%);
+    
+    /* Le design discret */
+    background-color: rgba(255, 255, 255, 0.5); /* Blanc à moitié transparent */
+    color: var(--primary-blue);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; /* Boutons ronds */
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10; /* Pour qu'elles soient au-dessus des images */
+    opacity: 0.6; /* Presque effacées quand on ne les survole pas */
+    transition: var(--transition);
+}
+
+.slider-btn:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--accent-cyan);
+    opacity: 1; /* Pleine visibilité au survol */
+    box-shadow: var(--shadow);
+}
+
+/* Placement spécifique de chaque flèche */
+.prev-btn { left: 2%; }
+.next-btn { right: 2%; }
 /* La galerie en elle-même (le container qui défile) */
 /* La galerie en elle-même (le container qui défile) */
 .galerie {
@@ -486,6 +527,11 @@ footer a:hover {
         padding: 25px;
     }
 
+    /* On cache les flèches sur mobile car on glisse avec le doigt */
+    .slider-btn {
+        display: none;
+    }
+
 
 /* --- CORRECTION DES PHOTOS SUR MOBILE --- */
     .image-box {
@@ -641,4 +687,63 @@ header.scrolled {
 /* On réduit aussi la taille du logo pour gagner de la place */
 header.scrolled .logo-container img {
     max-height: 45px; 
+}
+
+
+
+/* ==========================================================================
+   MODALE LIGHTBOX (ZOOM IMAGE)
+   ========================================================================== */
+.lightbox {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    z-index: 3000; /* Au-dessus de tout, même du header */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fond noir très sombre */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    animation: zoomIn 0.3s ease; /* Petite animation d'apparition */
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0.8); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 60px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-lightbox:hover {
+    color: var(--accent-cyan);
+}
+
+#caption {
+    margin-top: 20px;
+    color: white;
+    font-size: 1.2rem;
+    font-family: var(--font-title);
+}
+
+/* On change le curseur sur les images de la galerie pour montrer qu'on peut cliquer */
+.image-box img {
+    cursor: zoom-in;
 }

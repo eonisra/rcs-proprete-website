@@ -57,3 +57,68 @@ window.addEventListener('scroll', () => {
         header.classList.remove('scrolled'); // On remet le CSS normal
     }
 });
+
+/* ==========================================================================
+   LOGIQUE DE LA LIGHTBOX (Version sécurisée)
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', function() {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("img-zoom");
+    const captionText = document.getElementById("caption");
+    const closeLightbox = document.querySelector(".close-lightbox");
+
+    // On vérifie que la lightbox existe bien sur la page pour éviter les erreurs
+    if (lightbox) {
+        const imagesGalerie = document.querySelectorAll(".image-box img");
+
+        // On attache l'action de clic à chaque image
+        imagesGalerie.forEach(img => {
+            img.addEventListener('click', function() {
+                lightbox.style.display = "flex"; 
+                lightboxImg.src = this.src; 
+                captionText.innerHTML = this.alt; 
+            });
+        });
+
+        // Fermer quand on clique sur la croix
+        closeLightbox.addEventListener('click', function() {
+            lightbox.style.display = "none";
+        });
+
+        // Fermer quand on clique n'importe où sur le fond noir
+        lightbox.addEventListener('click', function(event) {
+            if (event.target !== lightboxImg) {
+                lightbox.style.display = "none";
+            }
+        });
+    }
+});
+
+
+/* ==========================================================================
+   LOGIQUE DES FLÈCHES DU CARROUSEL
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', function() {
+    const galerie = document.querySelector('.galerie');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    if (galerie && prevBtn && nextBtn) {
+        // La largeur d'une image (400px) + l'espace (20px) = 420px de défilement
+        const scrollAmount = 420; 
+
+        nextBtn.addEventListener('click', () => {
+            galerie.scrollBy({
+                left: scrollAmount, 
+                behavior: 'smooth' // Défilement fluide
+            });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            galerie.scrollBy({
+                left: -scrollAmount, 
+                behavior: 'smooth'
+            });
+        });
+    }
+});
