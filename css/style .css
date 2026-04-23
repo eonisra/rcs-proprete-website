@@ -148,7 +148,7 @@ nav ul li a:hover:after {
     background-color: var(--primary-blue); 
     
     /* LA MAGIE EST ICI : Le voile bleu sombre transparent + l'image générée */
-    background-image: linear-gradient(rgba(0, 45, 98, 0.7), rgba(0, 45, 98, 0.8)), url('../Img/fond-accueil.png');
+    background-image: linear-gradient(rgba(0, 45, 98, 0.7), rgba(0, 45, 98, 0.8)), url('../Img/fond-accueil.jpg');
     
     background-size: cover; /* L'image remplit tout l'espace sans se déformer */
     background-position: center; /* On centre l'image */
@@ -563,11 +563,11 @@ footer a:hover {
     }
 
     header {
-        flex-direction: column; /* Logo au-dessus du menu */
-        gap: 15px;
+        flex-direction: row; /* On remet le logo et le bouton sur la même ligne */
+        justify-content: space-between; /* Le logo complètement à gauche, le bouton à droite */
+        align-items: center; /* On les aligne bien au centre verticalement */
         padding: 15px 5%;
     }
-
     nav ul {
         gap: 15px;
         flex-wrap: wrap; /* Permet au menu de passer sur plusieurs lignes */
